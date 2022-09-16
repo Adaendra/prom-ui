@@ -1,3 +1,26 @@
+# Prometheus UI
+
+This project is based on [**Prometheus**](https://github.com/prometheus/prometheus). 
+
+All the UI part is extract from this project and updates were made to have a complete standalone and deployable app.
+
+## Motivation
+
+This project was made because I had a lot of Prometheus and want to combine their informations with one UI with the 
+help of [**Promxy**](https://github.com/jacksontj/promxy).
+
+May some updates and improvements will come.
+
+## Configuration
+
+| Environment variables | Definition                                                        |Default value|
+|-----------------------|-------------------------------------------------------------------|---|
+| `PROMETHEUS_SRC_API`  | To define which api endpoint you want to use as Prometheus source |http://localhost:9090|
+
+---
+
+`Documentation from https://github.com/prometheus/prometheus`
+
 ## Overview
 The `ui` directory contains static files and templates used in the web UI. For
 easier distribution they are compressed (c.f. Makefile) and statically compiled 
@@ -99,13 +122,3 @@ To build a production-optimized version of the React app to a `build` subdirecto
 
 **NOTE:** You will likely not need to do this directly. Instead, this is taken care of by the `build` target in the main
 Prometheus `Makefile` when building the full binary.
-
-### Integration into Prometheus
-
-To build a Prometheus binary that includes a compiled-in version of the production build of the React app, change to the
-root of the repository and run:
-
-    make build
-
-This installs dependencies via npm, builds a production build of the React app, and then finally compiles in all web
-assets into the Prometheus binary.
