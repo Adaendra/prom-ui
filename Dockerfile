@@ -24,7 +24,7 @@ RUN npm config set unsafe-perm true
 RUN npm ci
 RUN npm run build
 
-
+# --- Change permissions to avoid issue with node modules
 RUN chown -R node /app/react-app
 
 USER node
