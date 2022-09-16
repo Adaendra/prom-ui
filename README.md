@@ -1,4 +1,4 @@
-# Prometheus UI
+# Prom UI
 
 This project is based on [**Prometheus**](https://github.com/prometheus/prometheus). 
 
