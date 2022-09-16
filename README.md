@@ -1,5 +1,9 @@
 # Prom UI
 
+Standalone application to expose data from Prometheus/Thanos.
+
+---
+
 This project is based on [**Prometheus**](https://github.com/prometheus/prometheus). 
 
 All the UI part is extract from this project and updates were made to have a complete standalone and deployable app.
