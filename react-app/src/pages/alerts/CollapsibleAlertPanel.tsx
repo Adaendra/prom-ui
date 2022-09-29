@@ -1,11 +1,11 @@
-import React, {FC, Fragment, useState} from 'react';
-import {Link} from 'react-router-dom';
-import {Alert, Badge, Collapse, Table} from 'reactstrap';
-import {RuleStatus} from './AlertContents';
-import {Rule} from '../../types/types';
-import {faChevronDown, faChevronRight} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {createExpressionLink, formatDuration, parsePrometheusFloat} from '../../utils';
+import React, { FC, Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Alert, Badge, Collapse, Table } from 'reactstrap';
+import { RuleStatus } from './AlertContents';
+import { Rule } from '../../types/types';
+import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { createExpressionLink, formatDuration, parsePrometheusFloat } from '../../utils';
 
 interface CollapsibleAlertPanelProps {
     rule: Rule;
@@ -18,14 +18,14 @@ const alertColors: RuleStatus<string> = {
     inactive: 'success',
 };
 
-const CollapsibleAlertPanel: FC<CollapsibleAlertPanelProps> = ({rule, showAnnotations}) => {
+const CollapsibleAlertPanel: FC<CollapsibleAlertPanelProps> = ({ rule, showAnnotations }) => {
     const [open, toggle] = useState(false);
 
     if (rule.alerts != undefined) {
         return (
             <>
                 <Alert fade={false} onClick={() => toggle(!open)} color={alertColors[rule.state]}
-                       style={{cursor: 'pointer'}}>
+                       style={{ cursor: 'pointer' }}>
                     <FontAwesomeIcon icon={open ? faChevronDown : faChevronRight} fixedWidth/>
                     <strong>{rule.name}</strong> ({`${rule.alerts.length} active`})
                 </Alert>
@@ -82,7 +82,7 @@ const CollapsibleAlertPanel: FC<CollapsibleAlertPanelProps> = ({rule, showAnnota
                                         return (
                                             <Fragment key={i}>
                                                 <tr>
-                                                    <td style={{verticalAlign: 'middle'}}>
+                                                    <td style={{ verticalAlign: 'middle' }}>
                                                         {Object.entries(alert.labels).map(([k, v], j) => {
                                                             return (
                                                                 <Badge key={j} color="primary" className="mr-1">
@@ -123,7 +123,7 @@ interface AnnotationsProps {
     annotations: Record<string, string>;
 }
 
-export const Annotations: FC<AnnotationsProps> = ({annotations}) => {
+export const Annotations: FC<AnnotationsProps> = ({ annotations }) => {
     return (
         <Fragment>
             <tr>
