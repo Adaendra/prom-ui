@@ -170,10 +170,14 @@ export const GroupInfo: FC<GroupInfoProps> = ({ rules, children }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const statesCounter = rules.reduce<any>(
     (acc, r) => {
-      return {
-        ...acc,
-        [r.state]: acc[r.state] + r.alerts.length,
-      };
+      if (r.alerts != undefined) {
+        return {
+          ...acc,
+          [r.state]: acc[r.state] + r.alerts.length,
+        };
+      } else {
+        return acc;
+      }
     },
     {
       firing: 0,
